@@ -1,0 +1,16 @@
+import Nav from "./Nav";
+import Header from "./Header";
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Nav />
+      <div>
+        <main>
+          <Header />
+          {children}
+        </main>
+      </div>
+    </>
+  );
+};
+export default Layout;
