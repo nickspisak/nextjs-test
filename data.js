@@ -1,29 +1,49 @@
-export const articles = [
+export const stories = [
   {
     id: "1",
-    title: "GitHub introduces dark mode and auto-merge pull request",
-    excerpt:
-      "GitHub today announced a bunch of new features at its virtual GitHub...",
-    body: "GitHub today announced a bunch of new features at its virtual GitHub Universe conference including dark mode, auto-merge pull requests, and Enterprise Server 3.0. In the past couple of years, almost all major apps have rolled out a dark theme for its users, so why not GitHub?",
+    title: "Darkest Side of the Moon",
+    genres: "Thriller, Mystery, Dark",
+    image: "/covers/darkest.jpeg",
+    src: [
+      "/books/Darkest_Chapter1/chp1prt1.png",
+      "/books/Darkest_Chapter1/chp1prt2.png",
+      "/books/Darkest_Chapter1/chp1prt3.png",
+    ],
+    body: "John, a heartless serial killer, turns over a new leaf when he gains the ability to see the past of anyone he locks eyes with. Meanwhile, John, a police officer, gains the same ability and uses it to catch John.",
   },
   {
     id: "2",
-    title: "What’s multi-cloud? And why should developers care?",
-    excerpt: "Most developers don’t care about multi-cloud. But they should...",
-    body: "Most developers don’t care about multi-cloud. But they should. Whether developers know it or not, their companies likely already have a multi-cloud environment.    Multi-cloud is a strategy where a business selects different services from different cloud providers",
+    title: "How Long Does Love Bloom?",
+    genres: "Romance, Dark, Psychological",
+    image: "/covers/HLDLBcover.jpg",
+    src: [
+      "/books/HLDLB_Chapter1/page1.jpg",
+      "/books/HLDLB_Chapter1/page2.jpg",
+      "/books/HLDLB_Chapter1/page3.jpg",
+      "/books/HLDLB_Chapter1/page4.jpg",
+      "/books/HLDLB_Chapter1/page5.jpg",
+      "/books/HLDLB_Chapter1/page6.jpg",
+      "/books/HLDLB_Chapter1/page7.jpg",
+      "/books/HLDLB_Chapter1/page8.jpg",
+      "/books/HLDLB_Chapter1/page9.jpg",
+      "/books/HLDLB_Chapter1/page10.jpg",
+      "/books/HLDLB_Chapter1/page11.jpg",
+      "/books/HLDLB_Chapter1/page12.jpg",
+      "/books/HLDLB_Chapter1/page13.jpg",
+      "/books/HLDLB_Chapter1/page14.jpg",
+      "/books/HLDLB_Chapter1/page15.jpg",
+      "/books/HLDLB_Chapter1/page16.jpg",
+      "/books/HLDLB_Chapter1/page17.jpg",
+      "/books/HLDLB_Chapter1/page18.jpg",
+    ],
+    body: "Annabel, an agoraphobic poet, is cursed with always seeing how those around her will die. She finally meets someone she can connect with, Lee, who is immortal. Lee uses to Annabel to find a way to escape his curse of immortality, while Annabel uses Lee to cure her lonliness. A love between them starts to form, but is it healthy or even real?",
   },
+];
+export const webStories = [
   {
-    id: "3",
-    title: "Here is how to make your website more accessible",
-    excerpt:
-      "An accessible website is one that’s optimized for all people, including those with disabilities...",
-    body: "There are many things to consider when setting up a website, and accessibility is one factor that can sometimes be overlooked. An accessible website is one that’s optimized for all people, including those with impaired vision or hearing, motor difficulties, or learning disabilities",
-  },
-  {
-    id: "4",
-    title: "Why open ecosystems are the future of app development",
-    excerpt:
-      "When app stores entered the mainstream tech culture, they exposed developers to an audience of millions...",
-    body: "We can’t get enough of our mobile apps. There were 204 billion apps downloads last year, and that number is rising in 2020.  When app stores entered the mainstream tech culture, they exposed developers to an audience of millions who were keen to adopt the innovative capabilities",
+    id: "1",
+    title: "RethynSeed",
+    genres: "Adventure, Family Fun, Action",
+    image: "/covers/RethynCover.jpeg",
   },
 ];
