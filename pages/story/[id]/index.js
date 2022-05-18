@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Meta from "../../../components/Meta";
 import { server } from "../../../config";
-
 const story = ({ story }) => {
   return (
     <>
@@ -35,29 +34,33 @@ const story = ({ story }) => {
   );
 };
 
-export const getStaticProps = async (context) => {
-  const res = await fetch(`${server}/api/stories/${context.params.id}`);
+// export const getStaticProps = async ({ params }) => {
+//   const req = await fetch(`${server}/${params.id}.json`);
+//   const data = await req.json();
+//   return {
+//     props: {
+//       story: data,
+//     },
+//   };
+// };
 
-  const story = await res.json();
+// export const getStaticPaths = async () => {
+//   const req = await fetch(`${server}/stories.json`);
+//   const data = await req.json();
+//   const paths = data.map((story) => {
+//     return { params: { id: story } };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
+export async function getServerSideProps({ params }) {
+  const req = await fetch(`${server}/api/${params.id}.json`);
+  const data = await req.json();
   return {
-    props: {
-      story,
-    },
+    props: { story: data },
   };
-};
-
-export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/stories`);
-
-  const stories = await res.json();
-
-  const ids = stories.map((story) => story.id);
-  const paths = ids.map((id) => ({ params: { id: id.toString() } }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
+}
 export default story;

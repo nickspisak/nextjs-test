@@ -1,7 +1,6 @@
 import StoryList from "../components/StoryList";
 import styles from "../styles/Home.module.css";
-import { server } from "../config/index";
-
+import { server } from "../config";
 export default function Home({ stories }) {
   return (
     <div className={styles.container}>
@@ -9,14 +8,20 @@ export default function Home({ stories }) {
     </div>
   );
 }
-export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/stories`);
+// export const getStaticProps = async () => {
+//   const req = await fetch(`${server}/api/stories.json`);
+//   const data = await req.json();
 
-  const stories = await res.json();
-
+//   return {
+//     props: {
+//       stories: data,
+//     },
+//   };
+// };
+export async function getServerSideProps({ params }) {
+  const req = await fetch(`${server}/api/${params.id}.json`);
+  const data = await req.json();
   return {
-    props: {
-      stories,
-    },
+    props: { stories: data },
   };
-};
+}
