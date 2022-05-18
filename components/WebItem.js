@@ -5,7 +5,7 @@ const WebItem = ({ web }) => {
     <Link href="/story/[id]" as={`/webcomics/${web.id}`}>
       <a className={storyStyles.card}>
         <h2>{web.title}</h2>
-        <img src={web.image} />
+        <img src={web.image} height={80} />
         <strong>
           <p>Genres:{web.genres}</p>
         </strong>

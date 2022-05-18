@@ -2,7 +2,7 @@
   display: flex;
   align-items: left;
   justify-content: left;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   max-width: 1000px;
   margin-top: 3rem;
 }
@@ -23,8 +23,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #1c487a;
+  border-color: #17569e;
 }
 
 .card h2 {

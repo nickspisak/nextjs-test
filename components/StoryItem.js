@@ -5,7 +5,7 @@ const StoryItem = ({ story }) => {
     <Link href="/story/[id]" as={`/story/${story.id}`}>
       <a className={storyStyles.card}>
         <h2>{story.title}</h2>
-        <img src={story.image} />
+        <img src={story.image} height={500} width={350} />
         <strong>
           <p>Genres:{story.genres}</p>
         </strong>
