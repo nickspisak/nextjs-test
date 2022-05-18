@@ -5,7 +5,7 @@ const WebList = ({ webStories }) => {
   return (
     <div className={storyStyles.grid}>
       {webStories.map((web) => (
-        <WebItem web={web} />
+        <WebItem web={web} key={story} />
       ))}
     </div>
   );
