@@ -11,6 +11,7 @@ export default function Home({ stories }) {
 }
 export const getStaticProps = async () => {
   const res = await fetch(`${server}/api/stories`);
+
   const stories = await res.json();
 
   return {

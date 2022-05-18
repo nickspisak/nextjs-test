@@ -1,4 +1,4 @@
-import { stories } from "../../../data";
+import { stories } from "/public/data";
 export default function handler({ query: { id } }, res) {
   const filtered = stories.filter((story) => story.id === id);
 
