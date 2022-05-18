@@ -1,4 +1,4 @@
-import { stories } from "../../../data";
+import { webStories } from "../../../data";
 export default function handler(req, res) {
-  res.status(200).json(stories);
+  res.status(200).json(webStories);
 }

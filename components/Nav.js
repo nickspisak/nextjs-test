@@ -7,9 +7,9 @@ const Nav = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/webcomics">Webcomics</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
