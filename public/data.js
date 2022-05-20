@@ -1,6 +1,6 @@
 export const stories = [
   {
-    id: "1",
+    id: "darkestsideofthemoon",
     title: "Darkest Side of the Moon",
     genres: "Thriller, Mystery, Dark",
     image: "/covers/darkest.jpeg",
@@ -12,7 +12,7 @@ export const stories = [
     body: "John, a heartless serial killer, turns over a new leaf when he gains the ability to see the past of anyone he locks eyes with. Meanwhile, John, a police officer, gains the same ability and uses it to catch John.",
   },
   {
-    id: "2",
+    id: "howlongdoeslovebloom",
     title: "How Long Does Love Bloom?",
     genres: "Romance, Dark, Psychological",
     image: "/covers/HLDLBcover.jpg",
@@ -39,7 +39,7 @@ export const stories = [
     body: "Annabel, an agoraphobic poet, is cursed with always seeing how those around her will die. She finally meets someone she can connect with, Lee, who is immortal. Lee uses to Annabel to find a way to escape his curse of immortality, while Annabel uses Lee to cure her lonliness. A love between them starts to form, but is it healthy or even real?",
   },
   {
-    id: "3",
+    id: "someboringmystery",
     title: "Some Boring Mystery",
     genres: "Parody, Comedy, Cartoon, Drama",
     image: "/covers/sbmCover.jpeg",

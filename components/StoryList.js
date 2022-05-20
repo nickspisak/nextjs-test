@@ -5,7 +5,7 @@ const StoryList = ({ stories }) => {
   return (
     <div className={storyStyles.grid}>
       {stories.map((story) => (
-        <StoryItem story={story} key={story} />
+        <StoryItem story={story} key={story.title} />
       ))}
     </div>
   );

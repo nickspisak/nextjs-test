@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import storyStyles from "../styles/Story.module.css";
 const StoryItem = ({ story }) => {
   return (
-    <Link href="/story/[id]" as={`/story/${story.id}`}>
+    <Link href={`/story/${story.id}`}>
       <a className={storyStyles.card}>
         <h2>{story.title}</h2>
         <img src={story.image} height={500} width={350} />
