@@ -62,13 +62,17 @@ export const stories = [
   //   image: "/covers/DFTCover.jpg",
   //   body: "Forcing fetuses to watch advertisements, posting your memories online, and a memory bank. Don't Forget Tomorrow is an anthology story in a world where memory is manipulated and disected.",
   // },
-  // {
-  //   id: "5",
-  //   title: "I Won't Be Home For Christmas",
-  //   genre: "Christmas, Family, Drama",
-  //   image: "/covers/IWBHFCCover.png",
-  //   body: "Lovers Pete and Jess have had their ups and downs throughtout the years. Until their ups stop coming. Pete leaves her alone with two kids. We follow each of their Christmas celebrations throughout the years to see what led them here, and what brings them back together.",
-  // },
+  {
+    id: "5",
+    title: "I Won't Be Home For Christmas",
+    genres: "Christmas, Family, Drama",
+    image: "/covers/IWBHFCCover.png",
+    src: [
+      "/books/Christmas_Chapter1/Page1.jpg",
+      "/books/Christmas_Chapter1/Page2.jpg",
+    ],
+    body: "Lovers Pete and Jess have had their ups and downs throughtout the years. Until their ups stop coming. Pete leaves her alone with two kids. We follow each of their Christmas celebrations throughout the years to see what led them here, and what brings them back together.",
+  },
 ];
 export const webStories = [
   {
