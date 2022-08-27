@@ -21,6 +21,6 @@ export async function getStaticPaths() {
   const stories = await getStories();
   return {
     paths: stories.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 }
