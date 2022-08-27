@@ -7,7 +7,7 @@ export const StoryDetail = ({ story }) => {
       <Meta title={story.title} description={story.genres} />
       <h1>{story.title}</h1>
       {story.pages.map((page) => (
-        <img src={page.url} />
+        <img src={page.url} key={page.url} alt="story pages" />
       ))}
       <br />
       <Link href="/">Go Back</Link>
