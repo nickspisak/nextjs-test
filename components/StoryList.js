@@ -4,8 +4,8 @@ import storyStyles from "../styles/Story.module.css";
 const StoryList = ({ stories }) => {
   return (
     <div className={storyStyles.grid}>
-      {stories.map((story) => (
-        <StoryItem story={story} key={story.title} />
+      {stories.map((story, index) => (
+        <StoryItem story={story.node} key={index} />
       ))}
     </div>
   );
