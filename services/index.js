@@ -16,7 +16,7 @@ export const getStories = async () => {
             id
             title
             slug
-            description
+            desc
           }
         }
       }
@@ -29,16 +29,24 @@ export const getStories = async () => {
 
 export const getStoryDetails = async (slug) => {
   const query = gql`
-    query GetStoryDetails($slug: String!) {
-      story(where: { slug: $slug }) {
+  query GetStoryDetails($slug: String!) {
+    story(where: { slug: $slug })  {
+      desc
+      id
+      title
+      cover {
+        url
+      }
+      chapters(where: {slug: "one"}) {
+        id
         pages {
+          id
           url
         }
         title
-        genres
-        slug
       }
     }
+  }
   `;
   const result = await request(graphqlAPI, query, { slug });
   return result.story;

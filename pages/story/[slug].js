@@ -1,26 +1,38 @@
-import { getStories, getStoryDetails } from "../../services/index";
+import { gql } from "graphql-request";
+import { getStories, getStoryDetails } from "../../services";
 
-import { StoryDetail } from "../../components/StoryDetail";
-const Reader = ({ story }) => {
-  return (
-    <>
-      <StoryDetail story={story} />
-    </>
-  );
-};
-export default Reader;
-export async function getStaticProps({ params }) {
-  const story = await getStoryDetails(params.slug);
-
-  return {
-    props: { story },
-  };
+function storyPage({stories}) {
+    return(
+        <div>
+            <div>
+                <h1>{stories.title}</h1>
+                <p>List of chapters</p>
+            </div>
+            {stories.map((story, index) => (
+        <chapterItem story={story.node} key={index} />
+      ))}
+        </div>
+    )
 }
-
 export async function getStaticPaths() {
-  const stories = await getStories();
-  return {
-    paths: stories.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
-  };
+    const res = await fetch(getStoryDetails())
+    const stories = await res.json()
+    const paths = stories.map((story) => ({
+        params: {slug: story.chapter.slug}
+    }))
+    return {
+        paths,
+        fallback:false
+    }
 }
+export const getStaticProps = async () => {
+    const stories = (await getStoryDetails()) || [];
+  
+    return {
+      props: {
+        stories,
+      },
+    };
+  };
+  
+export default storyPage;

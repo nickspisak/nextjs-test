@@ -7,6 +7,7 @@ export default function Home({ stories }) {
   return (
     <div className={styles.container}>
       <StoryList stories={stories} />
+      <button>Submit story</button>
     </div>
   );
 }

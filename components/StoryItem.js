@@ -17,7 +17,7 @@ const StoryItem = ({ story }) => {
         <strong>
           <p>Genres:{story.genres}</p>
         </strong>
-        <p>{story.description}</p>
+        <p>{story.desc}</p>
       </a>
     </Link>
   );
