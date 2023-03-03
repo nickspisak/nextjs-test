@@ -10,12 +10,24 @@ const SERVER = mysql({
     password: process.env.MYSQL_PASSWORD
   }
 });
-export default async function executeQuery({query, values}) {
-  try {
-    const results = await SERVER.query(query, values);
-    await SERVER.end()
-    return results;
-  } catch (error) {
-    return {error};
+SERVER.getConnection((err) => {
+  if (err) {
+    console.log("Error Connecting to db");
   }
+  console.log("connected to db");
+})
+export default async function executeQuery({query, arraParams}) {
+  return new Promise((resolve, reject) => {
+    try {
+      SERVER.query(query, arraParams, (err, data) => {
+        if (err) {
+          console.log("error in executing query");
+          reject(err);
+        }
+        resolve(data)
+      })
+    } catch(err) {
+      reject(err);
+    }
+  })
 }

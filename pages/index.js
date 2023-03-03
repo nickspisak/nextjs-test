@@ -1,8 +1,8 @@
 import StoryList from "../components/StoryList";
 import styles from "../styles/Home.module.css";
 
-import { getStories } from "../services";
-
+//import { getStories } from "../services";
+import { getStories } from "../controller/stories";
 export default function Home({ stories }) {
   return (
     <div className={styles.container}>
