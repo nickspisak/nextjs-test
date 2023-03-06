@@ -1,28 +1,39 @@
 import StoryList from "../components/StoryList";
 import styles from "../styles/Home.module.css";
-import axios from "axios";
+import Layout from "../components/Layout";
 import {sql_query} from "../services/db";
 //import { getStories } from "../services";
 //import { getStories } from "../controller/stories";
+import StoryItem from "../components/StoryItem";
+import AppContext from "../context/appContext";
+import { useState } from "react";
 export default function Home({ stories }) {
-
+  
+  const [myStories, setMyStories] = useState(stories);
+  console.log({stories})
   return (
      <div className={styles.container}>
-       <StoryList stories={stories} />
+      {/* {stories.map((story) => <>
+      <StoryItem story= {story} key={story.id}/>
+      </>)} */}
+      <AppContext.Provider value = {{
+        stories : myStories,
+        setMyStories : setMyStories
+      }}>
+        <Layout />
+      </AppContext.Provider>
        <button>Submit story</button>
     </div>
   );
 }
-export async function getStaticProps(context) {
-  try {
-    const result = await sql_query(`
-      SELECT * FROM stories
-    `)
-    let stories = JSON.parse(JSON.stringify(result))
-    return {
-      props: {stories}
-    };
-  } catch (e) {
-    return {props: {stories:false}}
+
+export async function getServerSideProps() {
+  const response = await fetch("http://localhost:3000/api/stories")
+  const stories = await response.json();
+  console.log({stories})
+  return {
+    props: {
+      stories : stories
+    }
   }
 }
