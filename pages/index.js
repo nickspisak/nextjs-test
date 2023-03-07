@@ -22,6 +22,7 @@ export default function Home({ stories }) {
       }}>
         <Layout />
       </AppContext.Provider>
+      <img src="covers/darkest.jpeg" height="500px" />
        <button>Submit story</button>
     </div>
   );

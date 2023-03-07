@@ -1,4 +1,4 @@
-import {prisma} from "@/config/db";
+import {prisma} from "../../../config/db";
 
 export default async function handler(req, res) {
     switch(req.method) {
