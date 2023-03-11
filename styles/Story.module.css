@@ -3,13 +3,15 @@
   align-items: left;
   justify-content: left;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 100%;
   margin-top: 3rem;
 }
 
 .card {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
   margin: 1rem;
-  flex-basis: 45%;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -28,10 +30,18 @@
 }
 
 .card h2 {
-  margin: 0 0 1rem 0;
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
   font-size: 1.5rem;
 }
-
+.card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%
+}
 .card p {
   margin: 0;
   font-size: 1.25rem;
@@ -41,7 +51,9 @@
 .logo {
   height: 1em;
 }
-
+.Container {
+  width:50%;
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;

@@ -20,12 +20,13 @@ const getStories = async (req, res) => {
 
 const addStory = async(req, res) => {
     try {
-        const {title, description, genres, cover} = req.body;
+        const {title, description, genres, cover, genre} = req.body;
         const data = {
             title : title,
             description: description,
             genres : genres,
-            cover: cover
+            cover: cover,
+            genre: genre
         }
         const result = await prisma.stories.create({
             data : data,

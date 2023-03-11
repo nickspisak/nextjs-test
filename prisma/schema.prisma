@@ -20,7 +20,8 @@ model pages {
 model stories {
   id          Int     @id
   title       String  @unique(map: "title_UNIQUE") @db.VarChar(45)
-  description String  @unique(map: "desc_UNIQUE") @db.VarChar(45)
-  genres      Int?
-  cover       String? @unique(map: "cover_UNIQUE") @db.VarChar(255)
+  description String  @unique(map: "desc_UNIQUE") @db.VarChar(555)
+  genres      String  @db.VarChar(45)
+  cover       String? @unique(map: "cover_UNIQUE") @db.VarChar(45)
+  genre       String  @db.VarChar(45)
 }

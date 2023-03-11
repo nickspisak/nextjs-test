@@ -2,6 +2,7 @@ import StoryItem from "./StoryItem";
 import storyStyles from "../styles/Story.module.css";
 
 const StoryList = ({ stories }) => {
+  console.log({stories})
  const storyGenerator = () => {
   return (
     <>
