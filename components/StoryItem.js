@@ -18,7 +18,7 @@ const StoryItem = ({story}) => {
           width={350}
         />
         <strong>
-          <p>Genres:{story.genre}</p>
+          <p>Genres:{story.genres}</p>
         </strong>
         <p>{story.description}</p>
       </a>

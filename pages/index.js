@@ -1,9 +1,7 @@
 import StoryList from "../components/StoryList";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
-import {sql_query} from "../services/db";
-//import { getStories } from "../services";
-//import { getStories } from "../controller/stories";
+
 import StoryItem from "../components/StoryItem";
 import AppContext from "../context/appContext";
 import { useState } from "react";
@@ -38,3 +36,4 @@ export async function getServerSideProps() {
     }
   }
 }
+//ggY0vTtaY9Wt0tQj86gcHcpkquK8iKg-KJ7U-3Lt

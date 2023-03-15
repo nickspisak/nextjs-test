@@ -23,5 +23,4 @@ model stories {
   description String  @unique(map: "desc_UNIQUE") @db.VarChar(555)
   genres      String  @db.VarChar(45)
   cover       String? @unique(map: "cover_UNIQUE") @db.VarChar(45)
-  genre       String  @db.VarChar(45)
 }
