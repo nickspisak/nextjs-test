@@ -1,7 +1,11 @@
 .card {
     width: 75%;
     background-color:  rgb(148, 144, 144);
-
+    margin-left: 12.5%;
+    border-collapse: collapse;
+}
+.card tbody tr:nth-child(even) {
+    background-color: grey;
 }
 .ul {
     text-align: center;
