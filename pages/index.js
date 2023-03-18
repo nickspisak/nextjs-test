@@ -21,7 +21,7 @@ export default function Home({ stories }) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch("http://localhost:3001/api/stories")
+  const response = await fetch("http://localhost:3000/api/stories")
   const stories = await response.json();
   return {
     props: {

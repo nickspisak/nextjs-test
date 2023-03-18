@@ -10,7 +10,7 @@ const Story = (props)=> {
             <div className={chapterStyles.card}>
             {props.chapters.map((i) => {
                 return (
-                        <ul className={chapterStyles.ul}>{i.title}</ul>
+                        <ul key={i.chapter_id} className={chapterStyles.ul}>{i.title}</ul>
                 )
             })}
             </div>
