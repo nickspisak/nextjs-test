@@ -3,13 +3,13 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { grphCMSImageLoader } from "../util";
 import storyStyles from "../styles/Story.module.css";
-const StoryItem = ({story}) => {
-  console.log({story})
-  
+const StoryItem = ({story}) => {  
   return (
-    <Link href={"/"}>
+    <Link href={`/story/${story.url}`}>
        <a className={storyStyles.card}>
         <h2>{story.title}</h2>
+        <div className="image-wrapper">
+        
         <Image
           loader={grphCMSImageLoader}
           alt={story.title}
@@ -17,8 +17,9 @@ const StoryItem = ({story}) => {
           height={500}
           width={350}
         />
+        </div>
         <strong>
-          <p>Genres:{story.genres}</p>
+          Genres:{story.genres}
         </strong>
         <p>{story.description}</p>
       </a>

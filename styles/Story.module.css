@@ -8,10 +8,11 @@
 }
 
 .card {
-  width: 45%;
+  width: 35%;
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem;
+  margin: 6.5rem;
+  margin-top: 0px;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -43,27 +44,31 @@
   text-align: center;
   font-size: 1.5rem;
 }
-.card img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width:50%
+.card strong {
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
 }
-/* .card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-} */
-
+.card div {
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
 .logo {
   height: 1em;
 }
 .Container {
   width:50%;
 }
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@media only screen and (max-width: 768px) {
+  .card{
+    width: 100%
+  }
+  .card p{
+    display:none;
   }
 }
