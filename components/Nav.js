@@ -7,11 +7,9 @@ const Nav = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        {/* <li>
-          <Link href="/webcomics">Webcomics</Link>
-        </li> */}
       </ul>
+      <h1>ReadSpishstories.com</h1>
     </nav>
   );
 };
-export default Nav;
+ export default Nav;

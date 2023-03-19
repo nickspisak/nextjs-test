@@ -25,3 +25,11 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
+@media (max-width: 600px) {
+  .title span {
+    font-size: xx-large;
+  }
+  .description{
+    font-size: large;
+  }
+}

@@ -1,18 +1,30 @@
 import {prisma} from "../../config/db";
+import Nav from "../../components/Nav";
 import {Image} from "next/image";
 import {Link} from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 const Story = ({pages, stories})=> {
     const prevButton = () => {
-        if(pages.chapter_id != 100 && 200) {
-            return <a href={`/chapter/${pages.chapter_id -1}`}>Previous Chapter</a>
-        } else {
+        if(pages.chapter_id != 100) {
+            return (
+                <div className={chapterStyles.col3}>
+                <div className={chapterStyles.button}>
+                <a href={`/chapter/${pages.chapter_id -1}`}>Previous Chapter</a>
+                </div>
+            </div>
+            )
+           
+         } else {
             return null
         }
     }
     return (
+        <>
+        <Nav />
         <div>
+            <div className={chapterStyles.button}>
             <a href={`/story/${stories.url}`}>Go Back</a>
+            </div>
             <h1>{pages.title}</h1>
             
             {pages.pages.map((i) => {
@@ -27,10 +39,19 @@ const Story = ({pages, stories})=> {
                 )
             })}
           {}
-          {prevButton()}
-          <a href={`/chapter/${pages.chapter_id +1}`}>Next Chapter</a>
-        
+          <div className={chapterStyles.row}>
+            
+                    {prevButton()}
+             
+            <div className={chapterStyles.col3}><div className={chapterStyles.spacer}></div></div>
+            <div className={chapterStyles.col3}>
+                <div className={chapterStyles.button}>
+                    <a href={`/chapter/${pages.chapter_id +1}`}>Next Chapter</a>
+                </div>
+            </div>
+         </div>
         </div>
+        </>
     )
 } 
 

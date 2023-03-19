@@ -10,7 +10,7 @@ const Meta = ({ title, keywords, description }) => {
 };
 Meta.defaultProps = {
   title: "Spishstories",
-  keywords: "web dev",
+  keywords: "nick spisak read stories darkestsideofthemoon",
   description: "Stories",
 };
 export default Meta;
