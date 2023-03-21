@@ -14,7 +14,8 @@ model chapters {
   id             Int?
   stories        stories? @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "chapters_ibfk_1")
   pages          pages[]
-
+  first          Boolean @default(false)
+  last           Boolean @default(false)
   @@index([id], map: "id")
 }
 

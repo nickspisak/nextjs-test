@@ -5,7 +5,9 @@ import {Link} from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 const Story = ({pages, stories})=> {
     const prevButton = () => {
-        if(pages.chapter_id != 100) {
+        if(pages.first == 1 || pages.first == null) {
+            return null;
+         } else {
             return (
                 <div className={chapterStyles.col3}>
                 <div className={chapterStyles.button}>
@@ -13,9 +15,30 @@ const Story = ({pages, stories})=> {
                 </div>
             </div>
             )
-           
-         } else {
+        }
+    }
+    const nextButton = () => {
+        if(pages.last == 1 || pages.first == null) {
+            return null;
+        } else {
+            return(
+                <div className={chapterStyles.col3}>
+                <div className={chapterStyles.button}>
+                    <a href={`/chapter/${pages.chapter_id +1}`}>Next Chapter</a>
+                </div>
+            </div>
+            )
+        }
+    }
+    const backButton = () => {
+        if(pages.id == 1) {
+            return <a href="/story/darkestsideofthemoon">Go Back</a>
+        } if (pages.id == 2) {
+            return <a href="/story/someboringmystery">Go Back</a>
+        } if (pages.id == null){
             return null
+        }else {
+            return <a href="/">Go Back</a>
         }
     }
     return (
@@ -23,7 +46,7 @@ const Story = ({pages, stories})=> {
         <Nav />
         <div>
             <div className={chapterStyles.button}>
-            <a href={`/story/${stories.url}`}>Go Back</a>
+            {backButton()}
             </div>
             <h1>{pages.title}</h1>
             
@@ -44,11 +67,7 @@ const Story = ({pages, stories})=> {
                     {prevButton()}
              
             <div className={chapterStyles.col3}><div className={chapterStyles.spacer}></div></div>
-            <div className={chapterStyles.col3}>
-                <div className={chapterStyles.button}>
-                    <a href={`/chapter/${pages.chapter_id +1}`}>Next Chapter</a>
-                </div>
-            </div>
+            {nextButton()}
          </div>
         </div>
         </>
@@ -67,17 +86,11 @@ export async function getServerSideProps({params}) {
             pages: true,
         }
     });
-   const newNumber = String(number).charAt(0);
-   const id = Number(newNumber);
-    const stories = await prisma.stories.findFirst({
-        where: {
-            id: id
-        },
-    })
+
     return {
       props: {
         pages: pages,
-        stories: stories
+
       }
     }
   }

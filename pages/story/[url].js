@@ -23,9 +23,9 @@ const Story = (props)=> {
             <table className={chapterStyles.card}>
                 <thead>
                     <tr>
-                    <th>Chapter Number</th>
-                    <th>Chapter Title</th>
-                <th>Page Count</th>
+                        <th>Chapter Number</th>
+                        <th>Chapter Title</th>
+                        <th>Page Count</th>
                     </tr>
                 </thead>
             <tbody>
@@ -38,7 +38,7 @@ const Story = (props)=> {
                             <a href={`/chapter/${i.chapter_id}`}>{i.title}</a>
                         </td>
                        
-                        <td className={chapterStyles.ul}>{}</td>
+                        <td className={chapterStyles.ul}>{i.pages.length}</td>
                     </tr>
                     </>
                 )
@@ -58,7 +58,11 @@ export async function getServerSideProps({params}) {
             url: url, 
         },
         include: {
-            chapters: true
+            chapters: {
+                include: {
+                    pages: true,
+                }
+            }
         }
     });
     
