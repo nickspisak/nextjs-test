@@ -1,7 +1,7 @@
 import {prisma} from "../../config/db";
 import Nav from "../../components/Nav";
-import {Image} from "next/image";
-import {Link} from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 const Story = ({pages, stories})=> {
     const prevButton = () => {
@@ -32,13 +32,13 @@ const Story = ({pages, stories})=> {
     }
     const backButton = () => {
         if(pages.id == 1) {
-            return <a href="/story/darkestsideofthemoon">Go Back</a>
+            return <Link href="/story/darkestsideofthemoon">Go Back</Link>
         } if (pages.id == 2) {
-            return <a href="/story/someboringmystery">Go Back</a>
+            return <Link href="/story/someboringmystery">Go Back</Link>
         } if (pages.id == null){
             return null
         }else {
-            return <a href="/">Go Back</a>
+            return <Link href="/">Go Back</Link>
         }
     }
     return (
@@ -53,7 +53,7 @@ const Story = ({pages, stories})=> {
             {pages.pages.map((i) => {
                 return (
                     <>
-                        <img 
+                        <Image 
                             key={i.page_id} 
                             src={i.page_url}
                             />
