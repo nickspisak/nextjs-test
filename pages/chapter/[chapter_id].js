@@ -1,9 +1,10 @@
 import {prisma} from "../../config/db";
 import Nav from "../../components/Nav";
-import Image from "next/image";
 import Link from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
+import Image from "next/image"
 const Story = ({pages, stories})=> {
+    console.log(pages, stories)
     const prevButton = () => {
         if(pages.first == 1 || pages.first == null) {
             return null;
@@ -49,18 +50,26 @@ const Story = ({pages, stories})=> {
             {backButton()}
             </div>
             <h1>{pages.title}</h1>
-            
+            <div className={chapterStyles.container}>
             {pages.pages.map((i) => {
                 return (
                     <>
-                        <Image 
+                    <div className={chapterStyles.row}>
+                
+                        
+                        <img
                             key={i.page_id} 
                             src={i.page_url}
+                            height="100%"
+                            width="100%"
                             />
-                            
+                        
+                    
+                    </div>
                     </>
                 )
             })}
+            </div>
           {}
           <div className={chapterStyles.row}>
             
