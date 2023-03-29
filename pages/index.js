@@ -1,7 +1,6 @@
 import StoryList from "../components/StoryList";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
-
 import StoryItem from "../components/StoryItem";
 import AppContext from "../context/appContext";
 import { useState } from "react";

@@ -11,6 +11,7 @@ model chapters {
   title          String?  @db.VarChar(45)
   chapter_id     Int      @id @default(autoincrement())
   chapter_number Int?
+  summary        String?  @db.VarChar(255)
   id             Int?
   stories        stories? @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "chapters_ibfk_1")
   pages          pages[]

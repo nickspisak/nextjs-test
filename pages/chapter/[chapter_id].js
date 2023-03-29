@@ -3,7 +3,11 @@ import Nav from "../../components/Nav";
 import Link from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 import Image from "next/image"
+import { Modal, ModalHeader, ModalFooter } from "reactstrap";
+import React, { useState } from "react";
+
 const Story = ({pages, stories})=> {
+    const [modalOpen, setModalOpen] = useState(false)
     console.log(pages, stories)
     const prevButton = () => {
         if(pages.first == 1 || pages.first == null) {
@@ -42,6 +46,7 @@ const Story = ({pages, stories})=> {
             return <Link href="/">Go Back</Link>
         }
     }
+   
     return (
         <>
         <Nav />
@@ -50,6 +55,18 @@ const Story = ({pages, stories})=> {
             {backButton()}
             </div>
             <h1>{pages.title}</h1>
+            <div className={chapterStyles.summaryButton}
+                onClick={() => setModalOpen(true)}>Summary Button
+            </div>
+            {modalOpen ? (
+                <>
+                <div className={chapterStyles.summaryModal}>
+                <div className={chapterStyles.summaryClose} onClick={() => setModalOpen(false)}>X</div>
+                <p>{pages.summary}</p>
+                </div>
+                </>
+            ) : null}
+            
             <div className={chapterStyles.container}>
             {pages.pages.map((i) => {
                 return (

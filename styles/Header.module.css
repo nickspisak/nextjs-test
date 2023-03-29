@@ -20,7 +20,17 @@
 .description {
   text-align: center;
 }
-
+.summaryButton {
+  border-radius: 25px;
+  margin-top: 5px;
+  padding:10px;
+  background-color: #1857a0;
+  width: fit-content;
+  text-decoration-color: white ;
+}
+.summaryButton:hover {
+  cursor: default;
+} 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
