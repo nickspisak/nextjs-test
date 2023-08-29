@@ -4,10 +4,17 @@ import { useRouter } from "next/router";
 import { grphCMSImageLoader } from "../util";
 import storyStyles from "../styles/Story.module.css";
 const StoryItem = ({story}) => {  
+  const matureCheck = () => {
+    if(story.mature > 0) {
+      return <h2>{story.title}<span className={storyStyles.mature}>M</span></h2>
+    } else {
+      return <h2>{story.title}</h2>
+    }
+  }
   return (
     <Link href={`/story/${story.url}`}>
        <a className={storyStyles.card}>
-        <h2>{story.title}</h2>
+        {matureCheck()}
         <div className="image-wrapper">
         
         <Image

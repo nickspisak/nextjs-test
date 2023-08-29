@@ -35,6 +35,16 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
+.mature {
+  background-color: rgb(170, 10, 10);
+border-radius: 25px;
+padding-left: .5%;
+padding-top: .5%;
+padding-bottom: .5%;
+padding-right: 1.5%;
+color: white;
+width: .5%;
+}
 @media (max-width: 600px) {
   .title span {
     font-size: xx-large;

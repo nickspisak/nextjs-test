@@ -11,12 +11,13 @@ model chapters {
   title          String?  @db.VarChar(45)
   chapter_id     Int      @id @default(autoincrement())
   chapter_number Int?
-  summary        String?  @db.VarChar(255)
   id             Int?
+  first          Boolean  @default(false)
+  last           Boolean  @default(false)
+  summary        String?  @db.VarChar(255)
   stories        stories? @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "chapters_ibfk_1")
   pages          pages[]
-  first          Boolean @default(false)
-  last           Boolean @default(false)
+
   @@index([id], map: "id")
 }
 
@@ -37,5 +38,6 @@ model stories {
   genres      String     @db.VarChar(45)
   cover       String     @unique(map: "cover_UNIQUE") @db.VarChar(45)
   url         String?    @db.VarChar(45)
+  mature      Boolean    @default(false)
   chapters    chapters[]
 }

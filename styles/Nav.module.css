@@ -12,6 +12,7 @@
 }
 
 .nav ul {
+  margin-left: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +27,7 @@
   text-decoration: none;
 }
 .nav ul li{
-  padding: 10%;
+  padding: 5%;
   background-color:#fff;
   border-radius: 25px;
   margin: 5%;

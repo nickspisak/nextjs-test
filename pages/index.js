@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Home({ stories }) {
   
   const [myStories, setMyStories] = useState(stories);
+  console.log(stories);
   return (
      <div className={styles.container}>
       <AppContext.Provider value = {{
@@ -20,7 +21,7 @@ export default function Home({ stories }) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch("http://localhost:3000/api/stories")
+  const response = await fetch("https://readspishstories.com/api/stories")
   const stories = await response.json();
   return {
     props: {

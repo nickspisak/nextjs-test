@@ -2,5 +2,5 @@ const dev = process.env.NODE_ENV !== "production";
 
 export const server = dev
   ? "http://localhost:3000"
-  : "https://spishstories.netlify.app";
+  : "https://readspishstories.com";
 //https://spishstories.netlify.app
