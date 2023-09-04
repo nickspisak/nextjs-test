@@ -77,6 +77,7 @@ const Story = ({pages, stories})=> {
                         <img
                             key={i.page_id} 
                             src={i.page_url}
+                            alt={i.page_id}
                             height="100%"
                             width="100%"
                             />
