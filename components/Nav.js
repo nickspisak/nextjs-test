@@ -7,9 +7,9 @@ const Nav = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        {/* <li>
+        <li>
           <Link href="/shorts">Shorts</Link>
-        </li> */}
+        </li>
         <li>
           <Link href="/about">About</Link>
         </li>

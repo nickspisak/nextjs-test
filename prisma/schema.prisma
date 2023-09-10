@@ -41,3 +41,24 @@ model stories {
   mature      Boolean    @default(false)
   chapters    chapters[]
 }
+
+model short_stories {
+  shorts_id   Int
+  page_url    String? @db.VarChar(45)
+  page_number String? @db.VarChar(45)
+  page_id     String  @id @db.VarChar(45)
+  shorts      shorts  @relation(fields: [shorts_id], references: [shorts_id], onDelete: NoAction, onUpdate: NoAction, map: "fk_short_stories_1")
+
+  @@index([shorts_id], map: "fk_short_stories_1")
+}
+
+model shorts {
+  shorts_id     Int             @id
+  title         String?         @db.VarChar(45)
+  description   String?         @db.VarChar(555)
+  genres        String?         @db.VarChar(45)
+  cover         String?         @db.VarChar(455)
+  url           String?         @db.VarChar(45)
+  mature        Boolean         @default(false)
+  short_stories short_stories[]
+}
