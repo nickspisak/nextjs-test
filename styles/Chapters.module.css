@@ -22,9 +22,11 @@
     padding:10px;
     background-color: black;
     width: fit-content;
+    color: white;
 }
 .button:hover {
     background-color: grey;
+    cursor: pointer;
 }
 .button a{
     color:white;

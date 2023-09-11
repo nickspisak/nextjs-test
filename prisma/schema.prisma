@@ -26,7 +26,6 @@ model pages {
   page_id     Int       @id
   page_number Int?
   page_url    String?   @db.VarChar(455)
-  url         String    @db.VarChar(455)
   chapters    chapters? @relation(fields: [chapter_id], references: [chapter_id], onDelete: NoAction, onUpdate: NoAction, map: "pages_ibfk_1")
 
   @@index([chapter_id], map: "chapter_id")

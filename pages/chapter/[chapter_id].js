@@ -5,15 +5,14 @@ import chapterStyles from "../../styles/Chapters.module.css";
 import Image from "next/image"
 import { useRouter } from 'next/router';
 import { Modal, ModalHeader, ModalFooter } from "reactstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Story = ({pages, stories})=> {
     const [modalOpen, setModalOpen] = useState(false)
     console.log(pages, stories)
     const router = useRouter();
     const { url } = router.query;
-    const urlParts = url.split('/'); 
-    const storyTitle = urlParts[0];
+    const {storyUrl} = router.query;
     const prevButton = () => {
         if(pages.first == 1 || pages.first == null) {
             return null;
@@ -40,25 +39,19 @@ const Story = ({pages, stories})=> {
             )
         }
     }
-    const backButton = () => {
-        router.push(`/story/${storyTitle}`);
-        // if(pages.id == 1) {
-        //     return <Link href="/story/darkestsideofthemoon">Go Back</Link>
-        // } if (pages.id == 2) {
-        //     return <Link href="/story/someboringmystery">Go Back</Link>
-        // } if (pages.id == null){
-        //     return null
-        // }else {
-        //     return <Link href="/">Go Back</Link>
-        // }
-    }
-   
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const backButton = () => {
+                router.push(`/story/${storyUrl}`);
+            }
+            document.getElementById('backButton').addEventListener('click', backButton);
+        }
+    }, [storyUrl])
     return (
         <>
         <Nav />
         <div>
-            <div className={chapterStyles.button}>
-            {backButton()}
+            <div id="backButton" className={chapterStyles.button}>Go Back
             </div>
             <h1>{pages.title}</h1>
             <div className={chapterStyles.summaryButton}
