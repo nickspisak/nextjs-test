@@ -8,6 +8,9 @@ const Story = (props)=> {
     const chapterCount = () => {
         if(props.chapters.length === 1) {
             return <p>A sneak preview of the first chapter is available to read for free!</p>
+        } if(props.chapters.length === 0) {
+            document.getElementById("chapterList").style.display = "none" 
+            return <p>Coming Soon! No chapters available yet!</p>; 
         } else {
             return <p>Currently {props.chapters.length} chapters available to read for free!</p>
         }
@@ -20,7 +23,7 @@ const Story = (props)=> {
             <h1>{props.title}</h1>
             <p>{props.description}</p>
            {chapterCount()}
-            <table className={chapterStyles.card}>
+            <table id="chapterList" className={chapterStyles.card}>
                 <thead>
                     <tr>
                         <th>Chapter Number</th>

@@ -5,7 +5,7 @@ import styles from "../styles/Layout.module.css";
 import { useContext } from "react";
 import AppContext from "../context/appContext";
 import ShortsList from "./ShortsList";
-import About from "./About";
+import ShortsAbout from "./ShortsAbout";
 const Layout = ({ children, shorts}) => {
   const value = useContext(AppContext);
   return (
@@ -15,7 +15,7 @@ const Layout = ({ children, shorts}) => {
       <div className={styles.container}>
         <main className={styles.main}>
           <Header />
-          <About />
+          <ShortsAbout />
           <ShortsList shorts = {value.shorts} />
           {children}
         </main>

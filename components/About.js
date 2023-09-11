@@ -1,6 +1,8 @@
 import styles from "../styles/Header.module.css";
-const About = () => {
+import React, { useState } from "react";
 
+const About = () => {
+    const [modalOpen, setModalOpen] = useState(false)
     return (
         <>
         <p>
@@ -9,8 +11,17 @@ const About = () => {
             <ul>
                 <li>Short Chapters</li>
                 <li>No fluff or filler</li>
-                <li><div className={styles.summaryButton}>Summary Buttton</div>can be clicked at anytime if you need it!</li>
-                <li><h2 className={styles.mature}>M</h2>Symbolizes the story is meant for Mature audiences only! These stories may contain drugs, sexual content, swearing, or other explicit content. Any story with this mark is recommended for viewers 18 years or older</li>
+                <li><div className={styles.summaryButton} onClick={() => setModalOpen(true)}>Summary Buttton</div>
+                {modalOpen ? (
+                <>
+                <div className={styles.summaryModal}>
+                <div className={styles.summaryClose} onClick={() => setModalOpen(false)}>X</div>
+                <p>Click this whenever you need it! It provides a quick summary incase you forgot, or missed anything!</p>
+                </div>
+                </>
+            ) : null}
+                </li>
+                <li><h2 className={styles.mature}>M</h2>Symbolizes the story is meant for Mature audiences only! These stories may contain drugs, sexual content, intense swearing, or other explicit content. Any story with this mark is recommended for viewers 18 years or older</li>
             </ul>
         <p>
             Please Enjoy!

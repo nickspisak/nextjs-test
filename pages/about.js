@@ -19,7 +19,7 @@ export default function about() {
                 <li>Summary button whenever needed in case the reader ever forgets what happened previously, or is coming back to the story after not reading it for awhile</li>
             </ul>
         <p>
-           I started writing these stories for my own struggles with ADHD and I hope that others feeling the same way can now find reading enjoyable. Please Enjoy!
+           I started writing these stories for my own struggles with ADHD and I hope that others feeling the same way can now find reading enjoyable. Reading was nearly impossible for me, I found it hard to focus long enough to finish a chapter, found myself forgetting what happened last chapter, and even the length of the novel was often too intimidating to even imagine finishing. Please Enjoy!
         </p>
         </>
     )
