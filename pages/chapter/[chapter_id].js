@@ -36,15 +36,20 @@ const Story = ({pages, stories})=> {
         }
     }
     const backButton = () => {
-        if(pages.id == 1) {
-            return <Link href="/story/darkestsideofthemoon">Go Back</Link>
-        } if (pages.id == 2) {
-            return <Link href="/story/someboringmystery">Go Back</Link>
-        } if (pages.id == null){
-            return null
-        }else {
+        if(pages.id !== null) {
+            return <Link href={`/story/${pages.url}`}>Go Back</Link>
+        } else {
             return <Link href="/">Go Back</Link>
         }
+        // if(pages.id == 1) {
+        //     return <Link href="/story/darkestsideofthemoon">Go Back</Link>
+        // } if (pages.id == 2) {
+        //     return <Link href="/story/someboringmystery">Go Back</Link>
+        // } if (pages.id == null){
+        //     return null
+        // }else {
+        //     return <Link href="/">Go Back</Link>
+        // }
     }
    
     return (
