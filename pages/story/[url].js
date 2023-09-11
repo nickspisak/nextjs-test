@@ -3,8 +3,11 @@ import Nav from "../../components/Nav";
 import {Link} from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 import Header from "../../components/Header";
+import { useRouter } from 'next/router';
 const Story = (props)=> {
-    console.log(props.chapters)
+    console.log(props.chapters);
+    const router = useRouter();
+    const { url } = router.query;
     const chapterCount = () => {
         if(props.chapters.length === 1) {
             return <p>A sneak preview of the first chapter is available to read for free!</p>
@@ -38,7 +41,7 @@ const Story = (props)=> {
                     <tr key={i.chapter_id}>
                     <td className={chapterStyles.ul}>{i.chapter_number}</td>
                         <td className={chapterStyles.ul}> 
-                            <a href={`/chapter/${i.chapter_id}`}>{i.title}</a>
+                            <a href={`/chapter/${i.chapter_id}?storyUrl=${url}`}>{i.title}</a>
                         </td>
                        
                         <td className={chapterStyles.ul}>{i.pages.length}</td>

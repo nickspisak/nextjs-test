@@ -3,12 +3,17 @@ import Nav from "../../components/Nav";
 import Link from "next/link";
 import chapterStyles from "../../styles/Chapters.module.css";
 import Image from "next/image"
+import { useRouter } from 'next/router';
 import { Modal, ModalHeader, ModalFooter } from "reactstrap";
 import React, { useState } from "react";
 
 const Story = ({pages, stories})=> {
     const [modalOpen, setModalOpen] = useState(false)
     console.log(pages, stories)
+    const router = useRouter();
+    const { url } = router.query;
+    const urlParts = url.split('/'); 
+    const storyTitle = urlParts[0];
     const prevButton = () => {
         if(pages.first == 1 || pages.first == null) {
             return null;
@@ -36,11 +41,7 @@ const Story = ({pages, stories})=> {
         }
     }
     const backButton = () => {
-        if(pages.id !== null) {
-            return <Link href={`/story/${pages.url}`}>Go Back</Link>
-        } else {
-            return <Link href="/">Go Back</Link>
-        }
+        router.push(`/story/${storyTitle}`);
         // if(pages.id == 1) {
         //     return <Link href="/story/darkestsideofthemoon">Go Back</Link>
         // } if (pages.id == 2) {
