@@ -1,7 +1,8 @@
 import StoryItem from "./StoryItem";
 import storyStyles from "../styles/Story.module.css";
-
-const StoryList = ({ stories }) => {
+import { useState } from 'react';
+const StoryList = ({ stories, genres }) => {
+  console.log(stories, genres);
   const [selectedGenre, setSelectedGenre] = useState('All'); 
 
   const filteredStories = selectedGenre === 'All' 
@@ -24,7 +25,7 @@ const StoryList = ({ stories }) => {
 
   return (
     <div className={storyStyles.grid}>
-      <div className="genre-dropdown">
+      <div className="genre-dropdown" style={{width: '100%', marginBottom: '2%'}}>
         <label htmlFor="genre">Filter by Genre:</label>
         <select id="genre" onChange={handleGenreChange}>
           <option value="All">All</option>

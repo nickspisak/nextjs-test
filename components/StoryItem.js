@@ -21,6 +21,7 @@ const StoryItem = ({story}) => {
           loader={grphCMSImageLoader}
           alt={story.title}
           src={story.cover}
+          key={story.id}
           height={500}
           width={350}
         />

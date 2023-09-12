@@ -25,6 +25,7 @@ export async function getServerSideProps() {
   const response = await fetch("https://readspishstories.com/api/stories");  
   const stories = await response.json();
   const genres = [...new Set(stories.map((story) => story.genres.split(', ')).flat())];
+  console.log(genres);
   return {
     props: {
       stories,

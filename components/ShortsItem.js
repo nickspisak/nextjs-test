@@ -21,6 +21,7 @@ const ShortsItem = ({short}) => {
           loader={grphCMSImageLoader}
           alt={short.title}
           src={short.cover}
+          key={short.id}
           height={500}
           width={350}
         />

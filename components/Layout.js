@@ -6,7 +6,7 @@ import { useContext } from "react";
 import AppContext from "../context/appContext";
 import StoryList from "./StoryList";
 import About from "./About";
-const Layout = ({ children, stories }) => {
+const Layout = ({ children, stories, genres }) => {
   const value = useContext(AppContext);
   return (
     <>
@@ -16,7 +16,7 @@ const Layout = ({ children, stories }) => {
         <main className={styles.main}>
           <Header />
           <About />
-          <StoryList stories = {value.stories} />
+          <StoryList stories = {value.stories} genres={value.genres} />
           {children}
         </main>
       </div>

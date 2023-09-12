@@ -46,7 +46,7 @@ const Story = ({pages, stories})=> {
             }
             document.getElementById('backButton').addEventListener('click', backButton);
         }
-    }, [storyUrl])
+    }, [storyUrl, router])
     return (
         <>
         <Nav />
