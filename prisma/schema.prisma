@@ -23,7 +23,7 @@ model chapters {
 
 model pages {
   chapter_id  Int?
-  page_id     Int       @id
+  page_id     Int       @id @default(auto()) 
   page_number Int?
   page_url    String?   @db.VarChar(455)
   chapters    chapters? @relation(fields: [chapter_id], references: [chapter_id], onDelete: NoAction, onUpdate: NoAction, map: "pages_ibfk_1")
@@ -32,7 +32,7 @@ model pages {
 }
 
 model stories {
-  id          Int        @id
+  id          Int        @id @default(auto()) 
   title       String     @unique(map: "title_UNIQUE") @db.VarChar(45)
   description String     @unique(map: "desc_UNIQUE") @db.VarChar(555)
   genres      String     @db.VarChar(45)
