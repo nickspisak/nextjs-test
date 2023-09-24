@@ -58,7 +58,7 @@ const AdminUpload = () => {
       genres,
       cover,
       url,
-      mature: parseInt(mature, 10),
+      mature: mature === "true",
       id,
       chapters: chapters.map((chapter) => ({
         ...chapter,
@@ -142,8 +142,8 @@ const AdminUpload = () => {
         <input
           type="radio"
           name="mature"
-          value="1" // Set the value to "1" for mature
-          checked={mature === "1"} // Check if mature is "1"
+          value="true" // Set the value to "true" for mature
+          checked={mature === "true"} // Check if mature is "true"
           onChange={(e) => setMature(e.target.value)}
           required
         />
@@ -151,8 +151,8 @@ const AdminUpload = () => {
         <input
           type="radio"
           name="mature"
-          value="0" // Set the value to "0" for not mature
-          checked={mature === "0"} // Check if mature is "0"
+          value="false" // Set the value to "false" for not mature
+          checked={mature === "false"} // Check if mature is "false"
           onChange={(e) => setMature(e.target.value)}
           required
         />
