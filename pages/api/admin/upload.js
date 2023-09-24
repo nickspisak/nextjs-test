@@ -12,9 +12,14 @@ export default async function handler(req, res) {
       }
 
       // Validate and process the incoming data
-      const { title, description, genre, cover, url, mature, chapters } = req.body;
+      const { title, description, genre, cover, url, mature, id, chapters, pages } = req.body;
+      console.log('Request body:', req.body);
+      console.log('Chapters:', chapters);
+      console.log('Pages:', pages);
+  
 
-      if (!title || !description || !genre || !cover || !url || !mature || !chapters || chapters.length === 0) {
+      if (!title || !description || !genre || !cover || !url || !mature || !id || !chapters || !pages || chapters.length === 0) {
+
         return res.status(400).json({ error: 'Invalid input data' });
       }
 
@@ -26,47 +31,48 @@ export default async function handler(req, res) {
           genre,
           cover,
           url,
-          mature
+          mature,
+          id,
+          chapters: chapters.map(chapter => ({ ...chapter, id: id })),
         },
       });
-
+      console.log('Newly created story:', newStory);
       // Iterate through chapters and create database records
       for (const chapter of chapters) {
-        if (!chapter.title || !chapter.chapter_id || !chapter.chapterNumber || !chapter.chapterUrl || !chapter.first || !chapter.last || !chapter.summary || !chapter.pages || chapter.pages.length === 0) {
+        if (!chapter.title || !chapter.chapter_id || !chapter.chapter_number || !chapter.first || !chapter.last || !chapter.summary || !chapter.pages || chapter.pages.length === 0) {
           return res.status(400).json({ error: 'Invalid chapter data' });
         }
 
         const newChapter = await prisma.chapters.create({
           data: {
-            storyId: newStory.id,
-            chapterNumber: chapter.chapterNumber,
-            chapterUrl: chapter.chapterUrl,
-            chapterTitle: chapter.chapterTitle,
-            chapterFirst: chapter.first,
-            chapterLast: chapter.last,
-            chapterSummary: chapter.summary
+            id: id,
+            chapter_id: chapter.chapter_id,
+            chapter_number: chapter.chapter_number,
+            title: chapter.title,
+            first: chapter.first,
+            last: chapter.last,
+            summary: chapter.summary
 
           },
         });
 
         // Iterate through chapter pages and create database records
         for (const page of chapter.pages) {
-          if (!page.pageNumber || !page.page_url || !page.pageId) {
+          if (!page.page_number || !page.page_url || !page.page_id) {
             return res.status(400).json({ error: 'Invalid page data' });
           }
 
           await prisma.page.create({
             data: {
-              chapterId: newChapter.id,
-              pageId: page.pageId,
-              pageNumber: page.pageNumber,
-              imageUrl: page.page_url,
+              chapter_id: newChapter.chapter_id,
+              page_id: page.page_id,
+              page_number: page.page_number,
+              page_url: page.page_url,
             },
           });
         }
       }
-
-      return res.status(200).json({ message: 'Story uploaded successfully' });
+      return res.status(200).json({ message: 'Story uploaded successfully', story: newStory });    
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Internal server error' });
