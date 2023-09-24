@@ -53,23 +53,30 @@ const AdminUpload = () => {
 
     // Prepare the data for API submission
     const data = {
-      title,
-      description,
-      genres,
-      cover,
-      url,
-      mature: mature === "true",
-      id,
-      chapters: chapters.map((chapter) => ({
-        ...chapter,
-        id: id, // Add this line to include storyId
-      })),
-      pages: chapters.flatMap((chapter) =>
-        chapter.pages.map((page) => ({
-          ...page,
-          chapter_id: chapter.chapter_id, // Add chapter_id to pages
-        }))
-      ),
+        title,
+        description,
+        genres,
+        cover,
+        url,
+        mature: mature === "true",
+        id,
+        chapters: {
+          create: chapters.map((chapter) => ({
+            chapter_number: chapter.chapter_number,
+            title: chapter.title,
+            first: chapter.first,
+            last: chapter.last,
+            chapter_id: chapter.chapter_id,
+            pages: {
+              create: chapter.pages.map((page) => ({
+                page_number: page.page_number,
+                page_url: page.page_url,
+                page_id: page.page_id,
+                chapter_id: page.chapter_id, 
+              })),
+            },
+          })),
+        },
     };
 
     // Make an API request to upload the story data (implement this)

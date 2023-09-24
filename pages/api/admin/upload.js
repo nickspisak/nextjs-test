@@ -31,9 +31,25 @@ export default async function handler(req, res) {
           genres,
           cover,
           url,
-          mature,
+          mature: mature === "true",
           id,
-          chapters: chapters.map(chapter => ({ ...chapter, id: id })),
+          chapters: {
+            create: chapters.map((chapter) => ({
+              chapter_number: chapter.chapter_number,
+              title: chapter.title,
+              first: chapter.first,
+              last: chapter.last,
+              chapter_id: chapter.chapter_id,
+              pages: {
+                create: chapter.pages.map((page) => ({
+                  page_number: page.page_number,
+                  page_url: page.page_url,
+                  page_id: page.page_id,
+                  chapter_id: page.chapter_id, 
+                })),
+              },
+            })),
+          },
         },
       });
       console.log('Newly created story:', newStory);
