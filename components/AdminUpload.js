@@ -5,7 +5,7 @@ const AdminUpload = () => {
   const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [genre, setGenre] = useState("");
+  const [genres, setGenres] = useState("");
   const [cover, setCover] = useState("");
   const [mature, setMature] = useState("");
   const [url, setUrl] = useState("");
@@ -21,13 +21,13 @@ const AdminUpload = () => {
         first: "",
         last: "",
         id,
-        chapter_id: 0, 
+        chapter_id: 0,
         pages: [
           {
             page_number: 0,
             page_url: "",
             page_id: 0,
-            chapter_id: 0, 
+            chapter_id: 0,
           },
         ],
       },
@@ -55,10 +55,10 @@ const AdminUpload = () => {
     const data = {
       title,
       description,
-      genre,
+      genres,
       cover,
       url,
-      mature,
+      mature: parseInt(mature, 10),
       id,
       chapters: chapters.map((chapter) => ({
         ...chapter,
@@ -117,11 +117,11 @@ const AdminUpload = () => {
           onChange={(e) => setDescription(e.target.value)}
           required
         />
-        <label>Genre:</label>
+        <label>Genres:</label>
         <input
           type="text"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
+          value={genres}
+          onChange={(e) => setGenres(e.target.value)}
           required
         />
         <label>Cover:</label>
@@ -142,8 +142,8 @@ const AdminUpload = () => {
         <input
           type="radio"
           name="mature"
-          value="true" // Set the value to "true" for mature
-          checked={mature === "true"} // Check if mature is "true"
+          value="1" // Set the value to "1" for mature
+          checked={mature === "1"} // Check if mature is "1"
           onChange={(e) => setMature(e.target.value)}
           required
         />
@@ -151,8 +151,8 @@ const AdminUpload = () => {
         <input
           type="radio"
           name="mature"
-          value="false" // Set the value to "false" for not mature
-          checked={mature === "false"} // Check if mature is "false"
+          value="0" // Set the value to "0" for not mature
+          checked={mature === "0"} // Check if mature is "0"
           onChange={(e) => setMature(e.target.value)}
           required
         />

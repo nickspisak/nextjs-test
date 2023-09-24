@@ -12,13 +12,13 @@ export default async function handler(req, res) {
       }
 
       // Validate and process the incoming data
-      const { title, description, genre, cover, url, mature, id, chapters, pages } = req.body;
+      const { title, description, genres, cover, url, mature, id, chapters, pages } = req.body;
       console.log('Request body:', req.body);
       console.log('Chapters:', chapters);
       console.log('Pages:', pages);
   
 
-      if (!title || !description || !genre || !cover || !url || !mature || !id || !chapters || !pages || chapters.length === 0) {
+      if (!title || !description || !genres || !cover || !url || !mature || !id || !chapters || !pages || chapters.length === 0) {
 
         return res.status(400).json({ error: 'Invalid input data' });
       }
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         data: {
           title,
           description,
-          genre,
+          genres,
           cover,
           url,
           mature,
